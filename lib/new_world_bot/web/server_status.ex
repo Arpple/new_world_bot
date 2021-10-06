@@ -1,6 +1,8 @@
 defmodule NewWorldBot.Web.ServerStatus do
 	@url "https://www.newworld.com/en-us/support/server-status"
-	@status_maintenance_class ".ags-ServerStatus-content-responses-response-server-status--maintenance"
+	@class_status_maintenance ".ags-ServerStatus-content-responses-response-server-status--maintenance"
+	@class_status_up ".ags-ServerStatus-content-responses-response-server-status--up"
+	@class_status_full ".ags-ServerStatus-content-responses-response-server-status--full"
 
   def status(world) do
 		get_html()
@@ -29,10 +31,11 @@ defmodule NewWorldBot.Web.ServerStatus do
 	end
 
 	defp get_status(div) do
-		if have_class(div, @status_maintenance_class) do
-			:maintenance
-		else
-			:error
+		cond do
+			have_class(div, @class_status_maintenance) -> :maintenance
+			have_class(div, @class_status_up) -> :online
+			have_class(div, @class_status_full) -> :online
+			true -> :error
 		end
 	end
 

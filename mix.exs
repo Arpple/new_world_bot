@@ -17,7 +17,9 @@ defmodule NewWorldBot.MixProject do
       applications: [:httpoison],
       extra_applications: [
         :logger,
-        :floki
+        :floki,
+        :quantum,
+        :nostrum
       ],
       mod: {NewWorldBot.Application, []},
     ]
@@ -30,6 +32,8 @@ defmodule NewWorldBot.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
       {:httpoison, "~> 1.8.0"},
       {:floki, "~> 0.31.0"},
+      {:nostrum, "~> 0.4"},
+      {:quantum, "~> 3.0"},
     ]
   end
 end

@@ -10,6 +10,7 @@ defmodule NewWorldBot.Application do
     children = [
       # Starts a worker by calling: NewWorldBot.Worker.start_link(arg)
       # {NewWorldBot.Worker, arg}
+      NewWorldBot.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -25,3 +25,6 @@ new_world_bot-*.tar
 
 # Temporary files for e.g. tests
 /tmp
+
+.env
+config/secret.exs
